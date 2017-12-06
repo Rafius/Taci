@@ -1,0 +1,27 @@
+{
+	"data": {
+		"alerts": [{
+				"name": "money",
+				"state": "OK"
+			},
+			{
+				"name": "paper",
+				"state": "NOK"
+			},
+			{
+				"name": "power",
+				"state": "ALERT"
+			}
+		],
+    "actions": [{
+      "name":"user"
+			},
+			{
+      "name":"money"
+			},
+			{
+      "name":"card"
+			}
+    ]
+	}
+}
