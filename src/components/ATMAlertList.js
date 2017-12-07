@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ATMAlert from './ATMAlert'
+import logo from '../assets/user.png';
 
-const ATMAlertList = (props) => {
-  return (
-    <div className="row">
-      <div className="col-lg-12">
-        <span>Soy la cabeza</span>
-        <div class="hr"></div>
-        <ATMAlert alertListData={props.alertListData}/>
+class ATMAlertList extends Component{
+  render(){
+    const { alertListData } = this.props
+    return (
+      <div className="row">
+        <div className="col-lg-12 my-3 profileImg gradient">
+            <img alt="presentation" className=""
+              src={logo}/>
+        </div>
+        <div className="col-lg-12 mb-3">
+          <ATMAlert alertListData={alertListData}/>
+        </div>
       </div>
-    </div>
-  );
-};
+    )
+  }
+}
 
 export default ATMAlertList;

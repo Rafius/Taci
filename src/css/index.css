@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #CACFD2;
+  text-align: center;
+}
+img {
+	border-radius: 999em;
+	border: 3px solid #000;
+  box-shadow: 8px 8px 10px #aaa;
+  height: 100px;
+}
+.img-alert{
+  border: 3px solid #FF0000;
+  height: 30px !important;
+  animation: logo-spin infinite 20s linear;
+}
+.img-alert:hover {
+  border: 3px solid #000;
+  -webkit-animation: 0;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+}
+.row-inline
+{
+    display: table;
+    margin: auto;
+
+}
+.column-inline
+{
+    display: table-cell;
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(15px);
+        transform: translateX(15px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-15px);
+       transform: translateX(-15px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(13px);
+        transform: translateX(13px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-13px);
+        transform: translateX(-13px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(21px);
+        transform: translateX(12px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.swing:hover
+{
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
