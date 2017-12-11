@@ -1,0 +1,27 @@
+{
+	"Inici sessió ContactLess":{
+		"text":"Inici sessió ContactLess",
+		"img":"ContactLess.png"
+		} ,
+	"Inici sessió llibreta" : "libreta",
+	"Inici sessió targeta" : "tarjeta",
+	"Inici sessió pantalla" : "pantalla",
+	"Inici sessió tar. aliena" : "aliena",
+	"Actualització de llibreta": "",
+	"Retirada d'efectiu" : "",
+	"Ingrés" : "",
+	"Pagaments" : "",
+	"Consulta moviments" : "",
+	"Transferència entre comptes" : "",
+	"Canvi número personal" : "",
+	"Consulta de saldo" : "",
+	"Operació autitzada : XX,XX€" : "",
+	"Operació denegada : XX,XX€" : "",
+	"Final operació correcta" : "",
+	"Operació amb problemes" : "",
+	"Operación cancel lada" : "",
+	"Fi sessió correcta" : "",
+	"Fi sessió amb problemes" : "",
+	"Fi sessió cancel lada" : "",
+	"Fi sessió fora de temps" : ""
+}

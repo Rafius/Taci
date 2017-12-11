@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
   background-color: #CACFD2;
   text-align: center;
+  overflow: hidden;
 }
 img {
 	border-radius: 999em;
@@ -13,11 +14,11 @@ img {
 }
 .img-alert{
   border: 3px solid #FF0000;
-  height: 30px !important;
+  height: 50px !important;
   animation: logo-spin infinite 20s linear;
 }
 .img-alert:hover {
-  border: 3px solid #000;
+  border: 3px solid red;
   -webkit-animation: 0;
   -webkit-transform: scale(2);
   -ms-transform: scale(2);

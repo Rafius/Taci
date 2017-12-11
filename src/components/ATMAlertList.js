@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ATMAlert from './ATMAlert'
-import logo from '../assets/user.png';
+import logo from '../assets/punt groc.png';
 
 class ATMAlertList extends Component{
   render(){
