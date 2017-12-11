@@ -4,15 +4,14 @@ import logo from '../assets/punt groc.png';
 
 class ATMAlertList extends Component{
   render(){
-    const { alertListData } = this.props
     return (
       <div className="row">
-        <div className="col-lg-12 my-3 profileImg gradient">
-            <img alt="presentation" className=""
+        <div className="col-lg-12 my-3">
+            <img alt="presentation" className="profileImgOk"
               src={logo}/>
         </div>
         <div className="col-lg-12 mb-3">
-          <ATMAlert alertListData={alertListData}/>
+          <ATMAlert/>
         </div>
       </div>
     )

@@ -1,18 +1,27 @@
 import React, {Component} from 'react';
 import ATMAction from './ATMAction'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/actions.js';
 
 class ATMActionList extends Component{
+
   render(){
-    const { actionListData } = this.props
     return (
       <div className="row">
         <div className="col-lg-12">
-          <span>I'M THE ACTION LIST</span>
-          <ATMAction actionListData={actionListData}/>
+          <ATMAction actionListData = { this.props.actions }/>
         </div>
       </div>
     )
   }
 }
 
-export default ATMActionList;
+function mapStateToProps(state, ownProps) {
+    const { actions } = state;
+    return {
+      actions
+    }
+}
+
+export default connect(mapStateToProps)(ATMActionList);

@@ -7,7 +7,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/rootReducer.js';
 import ATMItemList from './containers/ATMItemList';
 import './css/index.css';
-const json = require('./mock.json'); // load resume file
 
 const store = createStore(
     rootReducer,
@@ -18,6 +17,6 @@ const store = createStore(
 );
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter><ATMItemList jsonObj={json}/></BrowserRouter>
+    <BrowserRouter><ATMItemList/></BrowserRouter>
   </Provider>,document.getElementById('root')
 )

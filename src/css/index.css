@@ -12,6 +12,15 @@ img {
   box-shadow: 8px 8px 10px #aaa;
   height: 100px;
 }
+.profileImgNotOk{
+	border: 3px solid red;
+}
+.profileImgAlert{
+	border: 3px solid orange;
+}
+.profileImgOk{
+	border: 3px solid green;
+}
 .img-alert{
   border: 3px solid #FF0000;
   height: 50px !important;
