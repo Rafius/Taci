@@ -28,15 +28,19 @@ class ATMItemList extends Component{
     this.wsDevice = new WebSocket('ws://localhost:1718/device')
     this.wsDevice.onopen = e => this.wsDevice.send(WS_DEVICE)
     this.wsDevice.onmessage = e => {
+      let parse = Object.values(JSON.parse(e.data))
+      if (parse[0].idRequest === 'testConsoleDevMonitor' && parse[5].method === 'getComponentInfoList') {
+        let listAlerts = parse[5].fields[0].value
+        for (let i=0;i<listAlerts.length;i++){
+          const infoObserver = addInfoObserver(listAlerts[i].componentId)
+          this.wsDevice.send(infoObserver)
+          const deviceInfo = getDeviceInfo(listAlerts[i].componentId)
+          this.wsDevice.send(deviceInfo)
+        }
+      }
+      if (parse[0].idRequest === 'testConsole' && parse[5].method === 'getDeviceInfo') {
         let parse = Object.values(JSON.parse(e.data))
-        if (parse[0].idRequest === 'testConsoleDevMonitor' && parse[5].method === 'getComponentInfoList') {
-          let listAlerts = parse[5].fields[0].value
-          for (let i=0;i<listAlerts.length;i++){
-            const infoObserver = addInfoObserver(listAlerts[i].componentId)
-            this.wsDevice.send(infoObserver)
-            const deviceInfo = getDeviceInfo(listAlerts[i].componentId)
-            this.wsDevice.send(deviceInfo)
-          }
+        this.props.getAlerts(parse[5].fields[0].value)
       }
     }
     this.wsDevice.onerror = e => console.log(e)

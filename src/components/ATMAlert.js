@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import logo from '../assets/user.png';
 
 class ATMAlert extends Component{
   renderAlerts = () =>{
-    const {alert} = this.props
-    if(!!alert){
+    const {alerts} = this.props
+    if(!!alerts){
     return(
-          <div className="col-lg-12 capa">
-              <span>{alert[0].value} || </span>
-              <span>{alert[1].value}</span>
+          <div className="col-lg-12">
+              <span>{alerts.deviceType}</span>
+              <span>{alerts.logicalStatus}</span>
           </div>
         )
      }
@@ -17,6 +18,10 @@ class ATMAlert extends Component{
     return (
       <div className="row">
         {this.renderAlerts()}
+        <div className="col-lg-12 myx-6 img-alert animated flash infinite">
+            <img alt="presentation" className=""
+            src={logo}/>
+        </div>
       </div>
     )
   }

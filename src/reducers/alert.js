@@ -3,7 +3,7 @@ const alert = (state={} , action) => {
     case 'INITIAL_ALERTS':
     return {
         ...state,
-        alerts: action
+        alerts: action.alerts
       }
     default:
       return state

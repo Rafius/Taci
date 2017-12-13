@@ -30,9 +30,10 @@ export const WS_DEVICE=`
 }`
 
 export function addInfoObserver(componentId){
-   return `{"header":{"idRequest":"testConsole"},"component":" ${componentId}","request":{"method":"addInfoObserver","fields" : [{"value" : "deviceManager_testconsole_' + Math.floor(Math.random() * (10000))'"},{"type" : "CALLBACK","className" : "com.caixabank.tas.lowinterface.common.device.IDeviceCallback"}]}}`
+   const random = Math.floor(Math.random() * (10000))
+   return `{"header":{"idRequest":"testConsole"},"component":"${componentId}","request":{"method":"addInfoObserver","fields" : [{"value" : "deviceManager_testconsole_${random}"},{"type" : "CALLBACK","className" : "com.caixabank.tas.lowinterface.common.device.IDeviceCallback"}]}}`
 }
 
 export function getDeviceInfo(componentId){
-   return `{"header":{"idRequest":"testConsole"},"component":" ${componentId}","request":{"method":"getDeviceInfo","fields":[]}}`
+   return `{"header":{"idRequest":"testConsole"},"component":"${componentId}","request":{"method":"getDeviceInfo","fields":[]}}`
 }
