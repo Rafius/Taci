@@ -6,18 +6,10 @@ class ATMItem extends Component{
   render(){
     return (
       <div className="row">
-        <div className="col-sm-12 col-md-4 my-3">
+        <div className="col-sm-12 col-md-4 my-3 mx-auto">
           <ATMAlertList/>
           <ATMEventList/>
         </div>
-         <div className="col-sm-12 col-md-4 my-3">
-           <ATMAlertList/>
-           <ATMEventList/>
-         </div>
-         <div className="col-sm-12 col-md-4 my-3">
-            <ATMAlertList/>
-            <ATMEventList/>
-          </div>
       </div>
     )
   }

@@ -3,7 +3,7 @@ const initialEvents = (events) => ({
 	events: events
 })
 
-export const loadInitialDataSocket = (events) => {
+export const getEvents = (events) => {
 	return (dispatch) => {
 		dispatch(initialEvents(events));
 	}

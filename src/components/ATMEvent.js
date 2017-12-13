@@ -1,41 +1,31 @@
 import React, {Component} from 'react';
-import logo from '../assets/safedoor.png';
 import { connect } from 'react-redux';
 
 class ATMEvent extends Component{
-
   renderEvents = () =>{
-    const {event} = this.props
-    let list
-    if(!!event){
-      list = event.map((event) =>
-        <div className="section col-lg-12 mb-3">
-           <span>{event.value}</span>
-        </div>
-      )
-    }
+    const {events} = this.props
+    if(!!events){
     return(
-      <div>
-          {list}
-      </div>
-    )
-    console.log(event)
+          <div className="col-lg-12 bounceInDown animated test">
+              <span>{events[0].value} || </span>
+              <span>{events[1].value}</span>
+          </div>
+        )
+     }
   }
   render(){
     return (
       <div className="row">
-        <div className="col-lg-12">
         {this.renderEvents()}
-        </div>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state, ownProps)=> {
-    const {event} = state;
+    const {events} = state.events;
     return {
-      event
+      events
     }
 }
 export default connect(mapStateToProps)(ATMEvent);

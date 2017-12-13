@@ -1,22 +1,31 @@
-import React from 'react';
-import logo from '../assets/nfc.png';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
-const ATMAlert = props => {
-  // const renderAlert = props.alertListData.map((item, index)=>{
-  //      return (
-  //        <div key={index} className="col-lg-12 mb-1 column-inline">
-  //          <img alt="presentation" className="img-alert"
-  //            src={logo}/>
-  //        </div>
-  //      )
-  //  });
-  return (
-    <div className="row row-inline">
-      <div className="col-lg-12 mt-3">
-        {/* {renderAlert} */}
+class ATMAlert extends Component{
+  renderAlerts = () =>{
+    const {alert} = this.props
+    if(!!alert){
+    return(
+          <div className="col-lg-12 capa">
+              <span>{alert[0].value} || </span>
+              <span>{alert[1].value}</span>
+          </div>
+        )
+     }
+  }
+  render(){
+    return (
+      <div className="row">
+        {this.renderAlerts()}
       </div>
-    </div>
-  );
-};
+    )
+  }
+}
 
-export default ATMAlert;
+const mapStateToProps = (state, ownProps)=> {
+    const {alerts} = state.alerts;
+    return {
+      alerts
+    }
+}
+export default connect(mapStateToProps)(ATMAlert);
