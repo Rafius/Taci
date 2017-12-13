@@ -1,3 +1,5 @@
+import {parseEvents} from '../helpers'
+
 const initialEvents = (events) => ({
 	type: "INITIAL_EVENTS",
 	events: events
@@ -5,6 +7,6 @@ const initialEvents = (events) => ({
 
 export const getEvents = (events) => {
 	return (dispatch) => {
-		dispatch(initialEvents(events));
+		dispatch(initialEvents(parseEvents(events[4].fields)));
 	}
 }

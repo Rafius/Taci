@@ -1,3 +1,5 @@
+import {parseAlerts} from '../helpers'
+
 const initialAlerts = (alerts) => ({
 	type: "INITIAL_ALERTS",
 	alerts: alerts
@@ -5,6 +7,6 @@ const initialAlerts = (alerts) => ({
 
 export const getAlerts = (alerts) => {
 		return (dispatch) => {
-		dispatch(initialAlerts(alerts));
+		dispatch(initialAlerts(parseAlerts(alerts)));
 	}
 }

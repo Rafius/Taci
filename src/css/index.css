@@ -4,7 +4,7 @@ body {
   color: white;
   background-color: #007EAE;
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   font-size: 1rem;
   font-weight: 400;

@@ -4,13 +4,18 @@ import { connect } from 'react-redux';
 class ATMEvent extends Component{
   renderEvents = () =>{
     const {events} = this.props
-    if(!!events){
-    return(
-          <div className="col-lg-12 bounceInDown animated test">
-              <span>{events[0].value} || </span>
-              <span>{events[1].value}</span>
-          </div>
-        )
+    if(events.length>0){
+      const list = events.map((events,index)=>
+        <div className="col-lg-12 bounceInDown animated test mb-3" key={index}>
+            <span>{events.date}</span>
+            <span>{events.text}</span>
+        </div>
+      )
+      return(
+        <div className="col-lg-12">
+          {list}
+        </div>
+      )
      }
   }
   render(){
@@ -23,7 +28,7 @@ class ATMEvent extends Component{
 }
 
 const mapStateToProps = (state, ownProps)=> {
-    const {events} = state.events;
+    const {events} = state;
     return {
       events
     }

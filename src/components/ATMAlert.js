@@ -4,23 +4,31 @@ import logo from '../assets/user.png';
 
 class ATMAlert extends Component{
   renderAlerts = () =>{
-    const {alerts} = this.props
-    if(!!alerts){
-    return(
-          <div className="col-lg-12">
-              <span>{alerts.deviceType}</span>
-              <span>{alerts.logicalStatus}</span>
-          </div>
-        )
-     }
+     const {alerts} = this.props
+     if(alerts.length>0){
+       const list = alerts.filter(alerts => alerts.logicalStatus != 'INSERVICE' ).map((alerts,index)=>
+         <div className="col-lg-12 bounceInLeft animated mb-3" key={index}>
+           <span>{alerts.deviceType}</span>
+           <span>{alerts.logicalStatus}</span>
+           <div className="col-lg-12 myx-6 img-alert animated flash infinite">             
+             <img alt="presentation" className=""
+             src={logo}/>
+           </div>
+         </div>
+       )
+       return(
+         <div className="col-lg-12">
+           {list}
+         </div>
+       )
+      }
   }
   render(){
     return (
       <div className="row">
         {this.renderAlerts()}
         <div className="col-lg-12 myx-6 img-alert animated flash infinite">
-            <img alt="presentation" className=""
-            src={logo}/>
+
         </div>
       </div>
     )
@@ -28,7 +36,7 @@ class ATMAlert extends Component{
 }
 
 const mapStateToProps = (state, ownProps)=> {
-    const {alerts} = state.alerts;
+    const {alerts} = state;
     return {
       alerts
     }

@@ -37,3 +37,19 @@ export function addInfoObserver(componentId){
 export function getDeviceInfo(componentId){
    return `{"header":{"idRequest":"testConsole"},"component":"${componentId}","request":{"method":"getDeviceInfo","fields":[]}}`
 }
+
+export function parseEvents(events){
+  return {
+     text: events[0].value,
+     date: events[1].value,
+     result: events[3].value,
+     number: events[4].value
+  }
+}
+
+export function parseAlerts(alerts){
+  return {
+    deviceType: alerts.deviceType,
+    logicalStatus: alerts.logicalStatus
+  }
+}
