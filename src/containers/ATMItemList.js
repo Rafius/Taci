@@ -6,9 +6,8 @@ import * as eventActions from '../actions/eventActions.js';
 import * as alertActions from '../actions/alertActions.js';
 import{
     WS_COMPONENT,
-    WS_DEVICE,
-    addInfoObserver,
-    getDeviceInfo
+    WS_DEVICE_MANAGER,
+    WS_DEVICE_NOTIFIER
 } from '../helpers'
 
 class ATMItemList extends Component{
@@ -16,35 +15,25 @@ class ATMItemList extends Component{
      this.createWs()
   }
   createWs(){
-    this.wsComponent = new WebSocket('ws://localhost:1716/component')
-    this.wsComponent.onopen = e => this.wsComponent.send(WS_COMPONENT)
-    this.wsComponent.onmessage = e => {
-      let events = Object.values(JSON.parse(e.data))
-      this.props.getEvents(events)
+    this.ws = new WebSocket('ws://localhost:1716/component')
+    this.ws.onopen = e => {
+      this.ws.send(WS_COMPONENT)
+      this.ws.send(WS_DEVICE_MANAGER)
+      this.ws.send(WS_DEVICE_NOTIFIER)
     }
-    this.wsComponent.onerror = e => console.log(e)
-    this.wsComponent.onclose = e => console.log(`${e} Conexion cerrada`) && !e.wasClean
-
-    this.wsDevice = new WebSocket('ws://localhost:1718/device')
-    this.wsDevice.onopen = e => this.wsDevice.send(WS_DEVICE)
-    this.wsDevice.onmessage = e => {
-      let parse = Object.values(JSON.parse(e.data))
-      if (parse[0].idRequest === 'testConsoleDevMonitor' && parse[5].method === 'getComponentInfoList') {
-        let listAlerts = parse[5].fields[0].value
-        for (let i=0;i<listAlerts.length;i++){
-          const infoObserver = addInfoObserver(listAlerts[i].componentId)
-          this.wsDevice.send(infoObserver)
-          const deviceInfo = getDeviceInfo(listAlerts[i].componentId)
-          this.wsDevice.send(deviceInfo)
-        }
+    this.ws.onmessage = e => {
+      let res = Object.values(JSON.parse(e.data))
+      if(res[4].method === 'doConnect' && res[1] === 'taciPoc'){
+        this.props.getEvents(res)
       }
-      if (parse[0].idRequest === 'testConsole' && parse[5].method === 'getDeviceInfo') {
-        let parse = Object.values(JSON.parse(e.data))
-        this.props.getAlerts(parse[5].fields[0].value)
+      if (res[0].idRequest === 'testConsole' && res[5].method === 'getListDeviceInfo') {
+        this.props.getAlerts(res[5].fields[0].value)
+      }
+      if (res[0].idRequest === 'testConsole' && res[5].method === 'registerObserver'){
+        console.log(res)
+        // this.props.getAlerts(res[5].fields[0].value)
       }
     }
-    this.wsDevice.onerror = e => console.log(e)
-    this.wsDevice.onclose = e => console.log(`${e} Conexion cerrada`) && !e.wasClean
   }
   render(){
     return (
