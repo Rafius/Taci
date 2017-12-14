@@ -20,17 +20,22 @@ body {
 .img-event{
   border-radius: 999em;
 	border: 3px solid #000;
-  box-shadow: 8px 8px 10px #aaa;
+  /* box-shadow: 8px 8px 10px #aaa; */
+  height: 100px;
+}
+.imgTas{
+  border-radius: 999em;
+	border: 3px solid #000;
   height: 100px;
 }
 .img-alert{
   border-radius: 999em;
 	border: 3px solid #000;
-  box-shadow: 8px 8px 10px #aaa;
   height: 100px;
+  animation-duration: 2.5s !important;
+  /* box-shadow: 8px 8px 10px #aaa; */
   /*border: 3px solid #FF0000;*/
   /* height: 50px !important;*/
-  animation-duration: 2.5s !important;
   /*animation: logo-spin infinite 20s linear;*/
 }
 .img-alert:hover {
@@ -39,8 +44,8 @@ body {
   -webkit-transform: scale(2);
   -ms-transform: scale(2);
   transform: scale(2);
-  margin-top: 20px !important;
-  margin-bottom: 120px !important;
+  /* margin-top: 20px !important; */
+  /* margin-bottom: 120px !important; */
 }
 .test{
   padding: 20px !important;

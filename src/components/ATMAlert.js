@@ -26,7 +26,7 @@ class ATMAlert extends Component{
   render(){
     return (
       <div className="row">
-        {/* {this.renderAlerts()} */}
+        {this.renderAlerts()}
       </div>
     )
   }
