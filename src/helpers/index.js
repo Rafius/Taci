@@ -11,45 +11,58 @@ export const WS_COMPONENT=`
         }
       ]
     }
-  }`;
-export const WS_DEVICE=`
+  }`
+export const WS_DEVICE_MANAGER=`
   {
-  "header":{
-    "idRequest":"testConsoleDevMonitor"
-  },
-  "component":"coreControl",
-  "request":{
-    "method":"getComponentInfoList",
-    "fields":[
-      {
-        "value":"com.caixabank.tas.lowinterface.common.device.IDeviceComponent"
-      }
-    ]
-  },
-  "timestamp":1513095678492
-}`
-
-export function addInfoObserver(componentId){
-   const random = Math.floor(Math.random() * (10000))
-   return `{"header":{"idRequest":"testConsole"},"component":"${componentId}","request":{"method":"addInfoObserver","fields" : [{"value" : "deviceManager_testconsole_${random}"},{"type" : "CALLBACK","className" : "com.caixabank.tas.lowinterface.common.device.IDeviceCallback"}]}}`
-}
-
-export function getDeviceInfo(componentId){
-   return `{"header":{"idRequest":"testConsole"},"component":"${componentId}","request":{"method":"getDeviceInfo","fields":[]}}`
-}
+    "header": {
+        "idRequest": "testConsole"
+    },
+    "component": "deviceManager",
+    "request": {
+        "method": "getListDeviceInfo",
+        "fields": []
+    }
+  }`
+export const WS_DEVICE_NOTIFIER=`
+  {
+  "header": {
+      "idRequest": "testConsole"
+    },
+    "component": "deviceNotifier",
+    "request": {
+        "method": "registerObserver",
+        "fields": [
+            {
+                "className": "java.lang.String",
+                "value": "12345"
+            },
+            {
+                "type": "CALLBACK",
+                "className": "com.caixabank.tas.core.component.notifier.INotifierObserverCallback"
+            }
+        ]
+    }
+  }`
 
 export function parseEvents(events){
   return {
      text: events[0].value,
      date: events[1].value,
      result: events[3].value,
-     number: events[4].value
+     level: events[4].value
   }
 }
-
 export function parseAlerts(alerts){
-  return {
-    deviceType: alerts.deviceType,
-    logicalStatus: alerts.logicalStatus
+  const arrayAlerts = []
+  let j = 0;
+  for (let i=0;i<alerts.length;i++){
+    if(alerts[i].deviceInfo.logicalStatus !== 'INSERVICE'){
+      arrayAlerts[j] = {
+        deviceType: alerts[i].id,
+        logicalStatus: alerts[i].deviceInfo.logicalStatus
+      }
+       j++;
+    }
   }
+  return arrayAlerts
 }

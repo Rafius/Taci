@@ -7,7 +7,7 @@ class ATMAlertList extends Component{
     return (
       <div className="row">
         <div className="col-lg-12 my-3">
-            <img alt="presentation" className="profileImgOk"
+            <img alt="presentation" className="img-alert profileImgOk"
               src={logo}/>
         </div>
         <div className="col-lg-12 mb-3">

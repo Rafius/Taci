@@ -6,14 +6,14 @@ class ATMAlert extends Component{
   renderAlerts = () =>{
      const {alerts} = this.props
      if(alerts.length>0){
-       const list = alerts.filter(alerts => alerts.logicalStatus != 'INSERVICE' ).map((alerts,index)=>
-         <div className="col-lg-12 bounceInLeft animated mb-3" key={index}>
-           <span>{alerts.deviceType}</span>
-           <span>{alerts.logicalStatus}</span>
-           <div className="col-lg-12 myx-6 img-alert animated flash infinite">             
-             <img alt="presentation" className=""
-             src={logo}/>
-           </div>
+       const list = alerts.map((alerts,index)=>
+         <div className="col-lg-12  bounceInLeft animated mb-3" key={index}>
+             {/* <div className="col-lg-2 myx-6 img-alert animated flash infinite"> */}
+               <span>{alerts.deviceType} || </span>
+               <span>{alerts.logicalStatus}</span>
+               {/* <img alt="presentation" className="img-alert"
+               src={logo}/> */}
+           {/* </div> */}
          </div>
        )
        return(
@@ -26,10 +26,7 @@ class ATMAlert extends Component{
   render(){
     return (
       <div className="row">
-        {this.renderAlerts()}
-        <div className="col-lg-12 myx-6 img-alert animated flash infinite">
-
-        </div>
+        {/* {this.renderAlerts()} */}
       </div>
     )
   }

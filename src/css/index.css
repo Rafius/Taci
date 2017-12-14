@@ -1,21 +1,46 @@
 body {
-  margin: 0;
-  padding: 0;
   color: white;
   background-color: #007EAE;
-  text-align: center;
-  overflow-x: hidden;
+  text-align: center !important;
+  /* overflow-x: hidden; */
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: white;
 }
-img {
-	border-radius: 999em;
+.profileImgOk{
+	border: 3px solid green !important;
+}
+.profileImgAlert{
+	border: 3px solid orange !important;
+}
+.profileImgNotOk{
+	border: 3px solid red !important;
+}
+.img-event{
+  border-radius: 999em;
 	border: 3px solid #000;
   box-shadow: 8px 8px 10px #aaa;
   height: 100px;
+}
+.img-alert{
+  border-radius: 999em;
+	border: 3px solid #000;
+  box-shadow: 8px 8px 10px #aaa;
+  height: 100px;
+  /*border: 3px solid #FF0000;*/
+  /* height: 50px !important;*/
+  animation-duration: 2.5s !important;
+  /*animation: logo-spin infinite 20s linear;*/
+}
+.img-alert:hover {
+  /*border: 3px solid red;*/
+  -webkit-animation: 0;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  margin-top: 20px !important;
+  margin-bottom: 120px !important;
 }
 .test{
   padding: 20px !important;
@@ -28,42 +53,6 @@ img {
   background-color: #12085A;
   box-shadow: 0 0 10px 5px rgba(0,0,0,0.4);
 }
-.profileImgNotOk{
-	border: 3px solid red;
-}
-.profileImgAlert{
-	border: 3px solid orange;
-}
-.profileImgOk{
-	border: 3px solid green;
-}
-.img-alert{
-  /*border: 3px solid #FF0000;*/
-  height: 50px !important;
-  animation-duration: 2.5s !important;
-  margin-bottom: 50px !important;
-  /*animation: logo-spin infinite 20s linear;*/
-}
-.img-alert:hover {
-  /*border: 3px solid red;*/
-  -webkit-animation: 0;
-  -webkit-transform: scale(2);
-  -ms-transform: scale(2);
-  transform: scale(2);
-  margin-top: 20px !important;
-  margin-bottom: 120px !important;
-}
-.row-inline
-{
-    display: table;
-    margin: auto;
-
-}
-.column-inline
-{
-    display: table-cell;
-}
-
 @keyframes logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
