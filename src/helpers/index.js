@@ -78,14 +78,28 @@ export function setImageEvents(level,result){
       return  require(`../assets/card.png`)
     case 3:
       if(result === 0){
-        return  require(`../assets/nfc.png`)
+        return  require(`../assets/ok.png`)
       }else if(result === 1){
-        return  require(`../assets/safedoor.png`)
+        return  require(`../assets/close.png`)
       }
     case 4:
-      return  require(`../assets/depository.png`)
+    if(result === 0){
+      return  require(`../assets/ok.png`)
+    }else if(result === 1){
+      return  require(`../assets/close.png`)
+    }else if(result === 2){
+      return  require(`../assets/cancel.png`)
+    }
     case 5:
-      return  require(`../assets/pihw.png`)
+    if(result === 0){
+      return  require(`../assets/ok.png`)
+    }else if(result === 1){
+      return  require(`../assets/close.png`)
+    }else if(result === 2){
+      return  require(`../assets/cancel.png`)
+    }else if(result === 3){
+      return  require(`../assets/watch.ico`)
+    }
     default:
       return  require(`../assets/user.png`)
   }

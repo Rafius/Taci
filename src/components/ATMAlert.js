@@ -8,9 +8,12 @@ class ATMAlert extends Component{
      if(alerts.length>0){
        const list = alerts.map((alerts,index)=>
          <div className="col-lg-1 bounceIn animated" key={index}>
-           {/* <span>{alerts.deviceType}</span> */}
              <Img alerts={alerts} type={'alerts'}/>
-           {/* <span>{alerts.logicalStatus}</span> */}
+             <span id="textInvisible">
+               {/* className={this.state.hover ? "visible" : "invisible"}> */}
+               {/* {alerts.deviceType}
+               {alerts.logicalStatus} */}
+             </span>
          </div>
        )
        return(

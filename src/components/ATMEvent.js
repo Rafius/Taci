@@ -8,17 +8,16 @@ class ATMEvent extends Component{
     if(events.length>0){
       const list = events.map((events,index)=>
         <div key={index} className="row bounceIn animated test mb-3">
-          <div className="col-lg-12 mb-3">
+          <div className="col-lg-6 mb-2">
             <span>{events.date} </span>
           </div>
-          <div className="col-lg-12 mb-3">
-            <span>{events.text} </span>
+          <div className="col-lg-6 mb-2">
+              <Img events={events}/>
           </div>
           <div className="col-lg-12">
-              <Img events={events}/>
-              {/* <img alt="presentation" className="img-event"
-              src={logo}/> */}
+            <span>{events.text} </span>
           </div>
+
         </div>
       )
       if(events.length === 5){

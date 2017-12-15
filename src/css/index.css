@@ -9,34 +9,32 @@ body {
   line-height: 1.5;
 }
 .inservice{
-  border: 3px solid green !important;
+  border: 5px solid green !important;
 }
 .outofservice{
-	border: 3px solid pink !important;
+	border: 5px solid pink !important;
 }
 .initializating{
-	border: 3px solid yellow !important;
+	border: 5px solid yellow !important;
 }
 .notinstalled{
-	border: 3px solid orange !important;
+	border: 5px solid orange !important;
 }
 .suspended{
-	border: 3px solid red !important;
+	border: 5px solid red !important;
 }
 .img-event{
   border-radius: 999em;
 	border: 3px solid #000;
-  height: 100px;
+  height: 50px;
 }
 .alert{
   font-size: 0.7rem;
 }
 .img-alert{
   border-radius: 999em;
-	border: 3px solid #000;
   height: 50px !important;
   animation-duration: 2.5s !important;
-  /*border: 3px solid #FF0000;*/
 }
 .img-alert:hover {
   /*border: 3px solid red;*/

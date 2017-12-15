@@ -11,7 +11,7 @@ class ATMAlertList extends Component{
               src={logo}/>
         </div>
         <hr/>
-        <div className="col-lg-12 mb-3">
+        <div className="col-lg-10 offset-lg-1 mb-3">
           <ATMAlert/>
         </div>
       </div>
