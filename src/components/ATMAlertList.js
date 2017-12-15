@@ -7,9 +7,10 @@ class ATMAlertList extends Component{
     return (
       <div className="row">
         <div className="col-lg-12 my-3">
-            <img alt="presentation" className="imgTas profileImgOk"
+            <img alt="presentation" className="img-event inservice"
               src={logo}/>
         </div>
+        <hr/>
         <div className="col-lg-12 mb-3">
           <ATMAlert/>
         </div>

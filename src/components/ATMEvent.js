@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import logo from '../assets/user.png';
+import Img from './Img'
 
 class ATMEvent extends Component{
   renderEvents = () =>{
@@ -9,33 +9,37 @@ class ATMEvent extends Component{
       const list = events.map((events,index)=>
         <div key={index} className="row bounceIn animated test mb-3">
           <div className="col-lg-12 mb-3">
-            <span>{events.text} || {events.date}</span>
+            <span>{events.date} </span>
+          </div>
+          <div className="col-lg-12 mb-3">
+            <span>{events.text} </span>
           </div>
           <div className="col-lg-12">
-              <img alt="presentation" className="img-event"
-              src={logo}/>
-            </div>
+              <Img events={events}/>
+              {/* <img alt="presentation" className="img-event"
+              src={logo}/> */}
+          </div>
         </div>
       )
-      if(events.length === 3){
-         document.getElementById("textInvisible").classList.remove('invisible');
+      if(events.length === 5){
+        document.getElementById("textInvisible").classList.remove('invisible');
         setTimeout(function(){
-          document.getElementById("events").classList.add('animated');
-          document.getElementById("events").classList.add('zoomOut');
+          document.getElementById("events").classList.add('animated','zoomOut');
          }, 3000);
       }
       return(
-        <div className="col-lg-12">
+        <div className="col-md-6 offset-md-3 col-lg-2 offset-lg-5">
           {list}
            <span id="textInvisible" className="invisible">
-             El proceso ha terminado y se cerrara en 3 segundos..</span>
+             El proceso ha terminado y se cerrara en 3 segundos..
+           </span>
         </div>
       )
      }
   }
   render(){
     return (
-      <div className="row " id="events">
+      <div className="row" id="events">
         {this.renderEvents()}
       </div>
     )

@@ -5,7 +5,7 @@ const initialState =[{
   level: 0
 }]
 
-const event = (state = initialState , action) => {
+const event = (state = [] , action) => {
   switch (action.type) {
     case 'INITIAL_EVENTS':
       return state.concat(action.events)

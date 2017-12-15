@@ -30,7 +30,6 @@ class ATMItemList extends Component{
         this.props.getAlerts(res[5].fields[0].value)
       }
       if (res[0].idRequest === 'testConsole' && res[5].method === 'registerObserver'){
-        console.log(res)
         // this.props.getAlerts(res[5].fields[0].value)
       }
     }

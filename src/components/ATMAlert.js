@@ -1,23 +1,20 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import logo from '../assets/user.png';
+import Img from './Img';
 
 class ATMAlert extends Component{
   renderAlerts = () =>{
      const {alerts} = this.props
      if(alerts.length>0){
        const list = alerts.map((alerts,index)=>
-         <div className="col-lg-12  bounceInLeft animated mb-3" key={index}>
-             {/* <div className="col-lg-2 myx-6 img-alert animated flash infinite"> */}
-               <span>{alerts.deviceType} || </span>
-               <span>{alerts.logicalStatus}</span>
-               {/* <img alt="presentation" className="img-alert"
-               src={logo}/> */}
-           {/* </div> */}
+         <div className="col-lg-1 bounceIn animated" key={index}>
+           {/* <span>{alerts.deviceType}</span> */}
+             <Img alerts={alerts} type={'alerts'}/>
+           {/* <span>{alerts.logicalStatus}</span> */}
          </div>
        )
        return(
-         <div className="col-lg-12">
+         <div className="col-lg-12 d-flex justify-content-center">
            {list}
          </div>
        )
@@ -25,7 +22,7 @@ class ATMAlert extends Component{
   }
   render(){
     return (
-      <div className="row">
+      <div className="row alert">
         {this.renderAlerts()}
       </div>
     )

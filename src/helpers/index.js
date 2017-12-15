@@ -48,8 +48,8 @@ export function parseEvents(events){
   return {
      text: events[0].value,
      date: events[1].value,
-     result: events[3].value,
-     level: events[4].value
+     level: events[3].value,
+     result: events[4].value
   }
 }
 export function parseAlerts(alerts){
@@ -65,4 +65,28 @@ export function parseAlerts(alerts){
     }
   }
   return arrayAlerts
+}
+
+export function setImageAlerts(src){
+  return require(`../assets/${src.toLowerCase()}.png`)
+}
+export function setImageEvents(level,result){
+  switch(level){
+    case 1:
+      return  require(`../assets/user.png`)
+    case 2:
+      return  require(`../assets/card.png`)
+    case 3:
+      if(result === 0){
+        return  require(`../assets/nfc.png`)
+      }else if(result === 1){
+        return  require(`../assets/safedoor.png`)
+      }
+    case 4:
+      return  require(`../assets/depository.png`)
+    case 5:
+      return  require(`../assets/pihw.png`)
+    default:
+      return  require(`../assets/user.png`)
+  }
 }
