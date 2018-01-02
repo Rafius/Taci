@@ -19,6 +19,7 @@ class ATMItemList extends Component{
   }
   createWs(){
     this.ws = new WebSocket('ws://localhost:1716/component')
+    // this.ws = new WebSocket('ws://10.32.187.218:1716/component')
     this.ws.onopen = e => {
       this.ws.send(WS_COMPONENT)
       this.ws.send(WS_DEVICE_MANAGER)

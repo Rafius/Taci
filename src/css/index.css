@@ -8,6 +8,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
 }
+/* ALERTS STATES */
 .inservice{
   border: 5px solid #5cb85c !important;
 }
@@ -23,9 +24,13 @@ body {
 .suspended{
 	border: 5px solid #337ab7 !important;
 }
-.event{
-  margin-top: -240px;
-  margin-bottom: 158px !important;
+/* DIVS AND IMGS */
+.eventInitial{
+  margin-top: -15rem !important;
+  margin-bottom: 8rem !important;
+}
+.eventOut{
+  margin-bottom: 28 rem !important;
 }
 .img-tas{
   border-radius: 999em;
@@ -48,6 +53,7 @@ body {
   font-weight: bold;
   font-size: 1rem;
 }
+/* EFECTS FOR EVENTS */
 .rotation {
   animation: rotation 2s linear;
 }
@@ -55,35 +61,55 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.translation {
+.rotationOut {
+  animation: rotationOut 2s linear;
+}
+@keyframes rotationOut {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+.translationInitial {
   width: 100px;
   height: 100px;
-  animation: translation 2s forwards ease;
+  animation: translationInitial 2s forwards ease;
 }
-
-@keyframes translation {
+@keyframes translationInitial {
   100% {
-    -webkit-transform: translateY(250px);
-    -moz-transform: translateY(250px);
-    -ms-transform: translateY(250px);
-    -o-transform: translateY(250px);
-    transform: translateY(250px);
+    -webkit-transform: translateY(14rem);
+    -moz-transform: translateY(14rem);
+    -ms-transform: translateY(14rem);
+    -o-transform: translateY(14rem);
+    transform: translateY(14rem);
   }
 }
-
 .translationRest {
   width: 100px;
   height: 100px;
   animation: translationRest 2s forwards ease;
 }
-
 @keyframes translationRest {
   100% {
     -webkit-transform: translateY(250px);
     -moz-transform: translateY(250px);
     -ms-transform: translateY(250px);
     -o-transform: translateY(250px);
-    transform: translateY(100px);
+    transform: translateY(7rem);
+  }
+}
+.translationOut {
+  width: 100px;
+  height: 100px;
+  animation: translationOut 2s forwards ease;
+}
+@keyframes translationOut {
+  0% {
+    -webkit-transform: translateY(-7rem);
+    -moz-transform: translateY(-7rem);
+    -ms-transform: translateY(-7rem);
+    -o-transform: translateY(-7rem);
+    transform: translateY(7rem);
+  }
+  100%{
+    transform: translateY(0rem);
   }
 }

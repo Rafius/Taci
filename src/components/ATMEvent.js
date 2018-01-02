@@ -9,22 +9,42 @@ class ATMEvent extends Component{
       const list = events.map((events,index)=>{
         if(index === 0){
           return(
-        <div key={index} className="col-md-3 event translation mb-3 offset-md-4">
+        <div key={index} id={`div${index}`}
+          className="col-md-3 eventInitial translationInitial mb-3 offset-md-4">
             <Img events={events}/>
         </div>
         )}else{
           return(
-          <div key={index} className="col-md-3 eventRest translationRest mb-3 offset-md-4">
-              <Img events={events}/>
+          <div key={index} id={`div${index}`}
+            className="col-md-3 translationRest mb-3 offset-md-4">
+              <Img events={events} index={index}/>
           </div>
           )}
         }
       )
       if(events.length === 5){
-        document.getElementById("textInvisible").classList.add('visible', '!important');
         setTimeout(function(){
-          document.getElementById("events").classList.add('animated','bounceOutUp');
+          document.getElementById("div4").classList.add('translationOut');
+          document.getElementById("text4").classList.add('rotationOut');
         }, 3000);
+        setTimeout(function(){
+          document.getElementById("div4").classList = "invisible"
+          document.getElementById("div3").classList.add('translationOut');
+          document.getElementById("text3").classList.add('rotationOut');
+        }, 6000);
+        setTimeout(function(){
+          document.getElementById("div3").classList = "invisible"
+          document.getElementById("div2").classList.add('translationOut');
+          document.getElementById("text2").classList.add('rotationOut');
+        }, 9000);
+        setTimeout(function(){
+          document.getElementById("div2").classList = "invisible"
+          document.getElementById("div1").classList.add('translationOut');
+          document.getElementById("text1").classList.add('rotationOut');
+        }, 12000);
+        setTimeout(function(){
+          document.getElementById("events").classList.add('animated','fadeOut');
+        }, 15000);
       }
       return(
         <div className="col-lg-6 offset-lg-3">

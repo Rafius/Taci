@@ -11,7 +11,7 @@ const AlertImg = props => {
       status = `img-event rotation`
     }
     return (
-      <img alt="presentation" className={`${status}`}
+      <img id={`text${props.index}`} alt="presentation" className={`${status}`}
         src={imgSource}/>
     )
 }
