@@ -5,11 +5,10 @@ const AlertImg = props => {
     let status,imgSource
     if(!!props.alerts){
       imgSource = setImageAlerts(props.alerts.deviceType)
-      status = `img-alert animated flash  ` + props.alerts.logicalStatus.toLowerCase()
-      console.log(status)
+      status = `img-alert animated flash ` + props.alerts.logicalStatus.toLowerCase()
     }else if(!!props.events){
       imgSource = setImageEvents(props.events.level,props.events.result)
-      status = `img-event`
+      status = `img-event rotation`
     }
     return (
       <img alt="presentation" className={`${status}`}

@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import ATMItem from './ATMItem'
 import { connect } from 'react-redux';
 import { bindActionCreators  } from 'redux';
+import ATMHeader from '../components/ATMHeader'
+import ATMEventList from '../components/ATMEventList'
 import * as eventActions from '../actions/eventActions.js';
 import * as alertActions from '../actions/alertActions.js';
+
 import{
     WS_COMPONENT,
     WS_DEVICE_MANAGER,
@@ -30,15 +33,19 @@ class ATMItemList extends Component{
         this.props.getAlerts(res[5].fields[0].value)
       }
       if (res[0].idRequest === 'testConsole' && res[5].method === 'registerObserver'){
-        // this.props.getAlerts(res[5].fields[0].value)
+        this.props.getAlerts(res[5].fields[0].value)
       }
     }
   }
   render(){
     return (
       <div className="row App">
-        <div className="col-lg-12">
-          <ATMItem/>
+        <div className="col-md-6">
+          <ATMItem number={'00019'}/>
+          <ATMEventList/>
+        </div>
+        <div className="col-md-6">
+          <ATMHeader number={'00005'}/>
         </div>
       </div>
     )

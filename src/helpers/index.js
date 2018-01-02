@@ -73,34 +73,34 @@ export function setImageAlerts(src){
 export function setImageEvents(level,result){
   switch(level){
     case 1:
-      return  require(`../assets/user.png`)
+      return  require(`../assets/profile.png`)
     case 2:
-      return  require(`../assets/card.png`)
+      return  require(`../assets/Circle-icons-creditcard.svg.png`)
     case 3:
       if(result === 0){
         return  require(`../assets/ok.png`)
       }else if(result === 1){
-        return  require(`../assets/close.png`)
-      }
+        return  require(`../assets/denied.png`)
+      } break;
     case 4:
-    if(result === 0){
-      return  require(`../assets/ok.png`)
-    }else if(result === 1){
-      return  require(`../assets/close.png`)
-    }else if(result === 2){
-      return  require(`../assets/cancel.png`)
-    }
+      if(result === 0){
+        return  require(`../assets/ok.png`)
+      }else if(result === 1){
+        return  require(`../assets/close.png`)
+      }else if(result === 2){
+        return  require(`../assets/denied.png`)
+      } break;
     case 5:
-    if(result === 0){
-      return  require(`../assets/ok.png`)
-    }else if(result === 1){
-      return  require(`../assets/close.png`)
-    }else if(result === 2){
-      return  require(`../assets/cancel.png`)
-    }else if(result === 3){
-      return  require(`../assets/watch.ico`)
-    }
+      if(result === 0){
+        return  require(`../assets/ok.png`)
+      }else if(result === 1){
+        return  require(`../assets/close.png`)
+      }else if(result === 2){
+        return  require(`../assets/denied.png`)
+      }else if(result === 3){
+        return  require(`../assets/hourglass.png`)
+      } break;
     default:
-      return  require(`../assets/user.png`)
+      return  require(`../assets/profile.png`)
   }
 }

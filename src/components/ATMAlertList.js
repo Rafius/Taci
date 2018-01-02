@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
 import ATMAlert from './ATMAlert'
-import logo from '../assets/punt groc.png';
 
 class ATMAlertList extends Component{
   render(){
     return (
       <div className="row">
-        <div className="col-lg-12 my-3">
-            <img alt="presentation" className="img-event inservice"
-              src={logo}/>
-        </div>
-        <hr/>
-        <div className="col-lg-10 offset-lg-1 mb-3">
+        <div className="col-lg-8 offset-lg-2">
           <ATMAlert/>
         </div>
       </div>

@@ -1,37 +1,36 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import Img from './Img'
+import Img from './Img';
 
 class ATMEvent extends Component{
   renderEvents = () =>{
     const {events} = this.props
     if(events.length>0){
-      const list = events.map((events,index)=>
-        <div key={index} className="row bounceIn animated test mb-3">
-          <div className="col-lg-6 mb-2">
-            <span>{events.date} </span>
-          </div>
-          <div className="col-lg-6 mb-2">
+      const list = events.map((events,index)=>{
+        if(index === 0){
+          return(
+        <div key={index} className="col-md-3 event translation mb-3 offset-md-4">
+            <Img events={events}/>
+        </div>
+        )}else{
+          return(
+          <div key={index} className="col-md-3 eventRest translationRest mb-3 offset-md-4">
               <Img events={events}/>
           </div>
-          <div className="col-lg-12">
-            <span>{events.text} </span>
-          </div>
-
-        </div>
+          )}
+        }
       )
       if(events.length === 5){
-        document.getElementById("textInvisible").classList.remove('invisible');
+        document.getElementById("textInvisible").classList.add('visible', '!important');
         setTimeout(function(){
-          document.getElementById("events").classList.add('animated','zoomOut');
-         }, 3000);
+          document.getElementById("events").classList.add('animated','bounceOutUp');
+        }, 3000);
       }
       return(
-        <div className="col-md-6 offset-md-3 col-lg-2 offset-lg-5">
+        <div className="col-lg-6 offset-lg-3">
           {list}
-           <span id="textInvisible" className="invisible">
-             El proceso ha terminado y se cerrara en 3 segundos..
-           </span>
+          <span id="textInvisible" className="invisible">
+           El proceso ha terminado y se cerrara en 3 segundos..</span>
         </div>
       )
      }
