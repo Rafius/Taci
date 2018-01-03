@@ -1,3 +1,4 @@
+import moment from 'moment';
 // PARAMETER FOR WS
 export const WS_COMPONENT=`
   {
@@ -16,7 +17,7 @@ export const WS_DEVICE_MANAGER=`
   {
     "header": {
         "idRequest": "testConsole"
-    },
+      },
     "component": "deviceManager",
     "request": {
         "method": "getListDeviceInfo",
@@ -34,7 +35,7 @@ export const WS_DEVICE_NOTIFIER=`
         "fields": [
             {
                 "className": "java.lang.String",
-                "value": "12345"
+                "value": "123245"
             },
             {
                 "type": "CALLBACK",
@@ -47,7 +48,7 @@ export const WS_DEVICE_NOTIFIER=`
 export function parseEvents(events){
   return {
      text: events[0].value,
-     date: events[1].value,
+     date: moment(events[1].value).unix(),
      level: events[3].value,
      result: events[4].value
   }
@@ -103,4 +104,18 @@ export function setImageEvents(level,result){
     default:
       return  require(`../assets/profile.png`)
   }
+}
+export function translationOutIcons(events){
+    for(var i=0;i<= events.length;i++){
+      if(i > 0 && i<events.length-1){
+          document.getElementById(`div${events.length-i}`).classList = "invisible";
+          document.getElementById(`div${events.length-i-1}`).classList.add('translationOut');
+          document.getElementById(`text${events.length-i-1}`).classList.add('rotationOut');
+      }else if(i === 0){
+        document.getElementById(`div${events.length-1}`).classList.add('translationOut');
+        document.getElementById(`text${events.length-1}`).classList.add('rotationOut');
+      }else if(i === events.length){
+        document.getElementById(`events`).classList.add('animated','fadeOut');
+      }
+    }
 }

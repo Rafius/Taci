@@ -62,7 +62,7 @@ body {
   to { transform: rotate(360deg); }
 }
 .rotationOut {
-  animation: rotationOut 2s linear;
+  animation: rotationOut 1s linear;
 }
 @keyframes rotationOut {
   from { transform: rotate(360deg); }
@@ -99,7 +99,7 @@ body {
 .translationOut {
   width: 100px;
   height: 100px;
-  animation: translationOut 2s forwards ease;
+  animation: translationOut 1s forwards ease;
 }
 @keyframes translationOut {
   0% {
