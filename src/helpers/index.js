@@ -1,4 +1,3 @@
-import moment from 'moment';
 // PARAMETER FOR WS
 export const WS_COMPONENT=`
   {
@@ -47,10 +46,10 @@ export const WS_DEVICE_NOTIFIER=`
 
 export function parseEvents(events){
   return {
-     text: events[0].value,
-     date: moment(events[1].value).unix(),
-     level: events[3].value,
-     result: events[4].value
+     text: events[4].fields[0].value,
+     date: events[4].fields[1].value,
+     level: events[4].fields[3].value,
+     result: events[4].fields[4].value
   }
 }
 export function parseAlerts(alerts){
@@ -105,17 +104,25 @@ export function setImageEvents(level,result){
       return  require(`../assets/profile.png`)
   }
 }
-export function translationOutIcons(events){
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export async function translationOutIcons(events,resetEvents){
+  if(events.length > 0){
     for(var i=0;i<= events.length;i++){
-      if(i > 0 && i<events.length-1){
-          document.getElementById(`div${events.length-i}`).classList = "invisible";
-          document.getElementById(`div${events.length-i-1}`).classList.add('translationOut');
-          document.getElementById(`text${events.length-i-1}`).classList.add('rotationOut');
-      }else if(i === 0){
+       if(i === 0){
         document.getElementById(`div${events.length-1}`).classList.add('translationOut');
         document.getElementById(`text${events.length-1}`).classList.add('rotationOut');
+      }else if(i > 0 && i<events.length-1){
+        document.getElementById(`div${events.length-i}`).classList = "invisible";
+        document.getElementById(`div${events.length-i-1}`).classList.add('translationOut');
+        document.getElementById(`text${events.length-i-1}`).classList.add('rotationOut');
       }else if(i === events.length){
-        document.getElementById(`events`).classList.add('animated','fadeOut');
+        document.getElementById(`div${events.length-i}`).classList.add('animated','fadeOut');
       }
+      await sleep(1000);
     }
+    resetEvents()
+  }
 }

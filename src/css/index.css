@@ -1,6 +1,7 @@
 body {
   color: white;
-  background-color: #51CFFF;
+  /* background-color: #51CFFF; */
+  background-color: #404040;
   text-align: center !important;
   overflow-x: hidden;
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -10,19 +11,19 @@ body {
 }
 /* ALERTS STATES */
 .inservice{
-  border: 5px solid #5cb85c !important;
+  border: 5px solid #118C4E !important;
 }
 .outofservice{
-	border: 5px solid #d9534f !important;
+	border: 5px solid #E44424 !important;
 }
 .initializating{
-	border: 5px solid #5bc0de !important;
+	border: 5px solid #67BCDB !important;
 }
 .notinstalled{
 	border: 5px solid #f0ad4e !important;
 }
 .suspended{
-	border: 5px solid #337ab7 !important;
+	border: 5px solid #4A96AD !important;
 }
 /* DIVS AND IMGS */
 .eventInitial{

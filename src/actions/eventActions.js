@@ -7,6 +7,16 @@ const initialEvents = (events) => ({
 
 export const getEvents = (events) => {
 	return (dispatch) => {
-		dispatch(initialEvents(parseEvents(events[4].fields)));
+		dispatch(initialEvents(parseEvents(events)));
+	}
+}
+
+const resetEvent = () => ({
+	type: "RESET_EVENTS"
+})
+
+export const resetEvents = () => {
+	return (dispatch) => {
+		dispatch(resetEvent());
 	}
 }
