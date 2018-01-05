@@ -1,7 +1,7 @@
 body {
-  color: white;
+  color: #404040;
   /* background-color: #51CFFF; */
-  background-color: #404040;
+  background-color: #ECEAE0;
   text-align: center !important;
   overflow-x: hidden;
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -33,6 +33,10 @@ body {
 .eventOut{
   margin-bottom: 28 rem !important;
 }
+.div-tas{
+  background-color: #24292e;
+  color: wheat;
+}
 .img-tas{
   border-radius: 999em;
   border: 3px solid #000;
@@ -40,8 +44,8 @@ body {
 }
 .img-event{
   text-align: center;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-top: 8px;
+  margin-right: 8px;
   border-radius: 999em;
   height: 100px;
 }
@@ -49,10 +53,6 @@ body {
   background-color: #286090;
   border-radius: 999em;
   height: 50px !important;
-}
-.event-text{
-  font-weight: bold;
-  font-size: 1rem;
 }
 /* EFECTS FOR EVENTS */
 .rotation {
@@ -90,10 +90,10 @@ body {
 }
 @keyframes translationRest {
   100% {
-    -webkit-transform: translateY(250px);
-    -moz-transform: translateY(250px);
-    -ms-transform: translateY(250px);
-    -o-transform: translateY(250px);
+    -webkit-transform: translateY(7rem);
+    -moz-transform: translateY(7rem);
+    -ms-transform: translateY(7rem);
+    -o-transform: translateY(7rem);
     transform: translateY(7rem);
   }
 }
@@ -104,13 +104,10 @@ body {
 }
 @keyframes translationOut {
   0% {
-    -webkit-transform: translateY(-7rem);
-    -moz-transform: translateY(-7rem);
-    -ms-transform: translateY(-7rem);
-    -o-transform: translateY(-7rem);
-    transform: translateY(7rem);
-  }
-  100%{
-    transform: translateY(0rem);
+    -webkit-transform: translateY(8rem);
+    -moz-transform: translateY(8rem);
+    -ms-transform: translateY(8rem);
+    -o-transform: translateY(8rem);
+    transform: translateY(8rem);
   }
 }

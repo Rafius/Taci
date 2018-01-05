@@ -19,13 +19,14 @@ class ATMEvent extends Component{
     if(events.length>0){
       // const list = events.filter((item) => item.date > date).map((events,index)=>{
       const list = events.map((events,index)=>{
+      console.log(events);
         let div;
         if(index === 0 && events.level !== 5){
           div =
-        <div key={index} id={`div${index}`}
-          className="col-md-3 eventInitial translationInitial mb-3 offset-md-4">
-            <Img events={events}/>
-        </div>
+          <div key={index} id={`div${index}`}
+            className="col-md-3 eventInitial translationInitial mb-3 offset-md-4">
+              <Img events={events} index={index}/>
+          </div>
         }else{
           div =
           <div key={index} id={`div${index}`}

@@ -27,7 +27,7 @@ class ATMItemList extends Component{
     }
     this.ws.onmessage = e => {
       let res = Object.values(JSON.parse(e.data))
-      if(res[4].method === 'doConnect' && res[1] === 'taciPoc'){
+      if(res[4].method === 'doConnect' && res[1] === 'taciPoc' && res[0] !== 'ERROR'){
         this.props.getEvents(res)
       }
       if (res[0].idRequest === 'testConsole' && res[5].method === 'getListDeviceInfo') {
@@ -46,7 +46,7 @@ class ATMItemList extends Component{
           <ATMEventList/>
         </div>
         <div className="col-md-6">
-          <ATMHeader number={'00005'}/>
+          <ATMHeader number={'00005'} />
         </div>
       </div>
     )
