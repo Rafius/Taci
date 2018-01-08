@@ -84,17 +84,17 @@ export function setImageEvents(level,result){
       } break;
     case 4:
       if(result === 0){
-        return  require(`../assets/ok.png`)
+        return  require(`../assets/RespuestaHostOK.png`)
       }else if(result === 1){
-        return  require(`../assets/close.png`)
+        return  require(`../assets/RespuestaHostNOK.png`)
       }else if(result === 2){
         return  require(`../assets/denied.png`)
       } break;
     case 5:
       if(result === 0){
-        return  require(`../assets/ok.png`)
+        return  require(`../assets/FinSesionOK.png`)
       }else if(result === 1){
-        return  require(`../assets/close.png`)
+        return  require(`../assets/FinSesionNOK.png`)
       }else if(result === 2){
         return  require(`../assets/denied.png`)
       }else if(result === 3){
